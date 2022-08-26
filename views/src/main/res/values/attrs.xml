@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StepView">
+        <attr name="borderWidth" format="dimension" />
+        <attr name="stepGroundColor" format="color" />
+        <attr name="progressColor" format="color" />
+        <attr name="maxStep" format="integer" />
+        <attr name="currentStep" format="integer" />
+        <attr name="stepTextSize" format="dimension" />
+        <attr name="stepTextColor" format="color" />
+        <attr name="textTypeFace">
+            <enum name="normal" value="0"/>
+            <enum name="bold" value="1"/>
+            <enum name="italic" value="2"/>
+        </attr>
+        <attr name="startAngle" format="float"/>
+        <!--<attr name="endAngle" format="float"/>-->
+        <attr name="isFullCircle" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="RatingBar">
+        <attr name="rb_num" format="integer"/>
+        <attr name="rb_empty" format="reference"/>
+        <attr name="rb_half" format="reference"/>
+        <attr name="rb_full" format="reference"/>
+        <attr name="rb_padding" format="dimension"/>
+    </declare-styleable>
+</resources>

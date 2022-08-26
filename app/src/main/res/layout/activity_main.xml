@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+    <com.alpha.views.StepView
+        android:id="@+id/mStepView"
+        android:layout_marginTop="10dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        app:borderWidth="20dp"
+        app:stepGroundColor="@color/teal_200"
+        app:progressColor="@color/purple_200"
+        app:maxStep="10000"
+        app:currentStep="1000"
+        app:stepTextSize="30sp"
+        app:textTypeFace="bold"
+        app:stepTextColor="@color/black"/>
+
+    <com.alpha.views.ShapeView
+        android:id="@+id/mShapeView"
+        android:layout_marginTop="30dp"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"/>
+
+    <com.alpha.views.RatingBar
+        android:layout_marginTop="20dp"
+        app:rb_num="10"
+        app:rb_padding="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
