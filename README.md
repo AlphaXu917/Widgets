@@ -1,3 +1,6 @@
+![Video_2022-08-26_135435](https://user-images.githubusercontent.com/16589390/186832432-0f877d1b-bb51-4b23-adf0-b102f03dc552.gif)
+
+
 # How to get a Git project into your build:
 
 Step 1. Add the JitPack repository to your build file
