@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.util.AttributeSet
 import android.util.DisplayMetrics
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 import android.view.animation.DecelerateInterpolator
@@ -17,7 +18,7 @@ class FloatView @JvmOverloads constructor(
 ) : FrameLayout(context, attrs), View.OnTouchListener {
     private var mViewWidth = 0
     private var mViewHeight = 0
-    private var mToolBarHeight = dp2px(56F)
+    private var mToolBarHeight:Int
     private var mDownX = 0F
     private var mDownY = 0F
     private var mFirstY: Int = 0
@@ -30,8 +31,9 @@ class FloatView @JvmOverloads constructor(
     }
 
     init {
+        mToolBarHeight = getActionBarHeight()
         val lp = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
-        lp.topMargin = mToolBarHeight
+        //lp.topMargin = mToolBarHeight
         layoutParams = lp
         val imageView = ShapeableImageView(context)
         imageView.setImageResource(R.drawable.ic_heart_full)
@@ -42,6 +44,15 @@ class FloatView @JvmOverloads constructor(
             mViewWidth = this.width
             mViewHeight = this.height
         }
+
+    }
+
+    private fun getActionBarHeight() : Int{
+        val tv = TypedValue()
+        if (context.theme.resolveAttribute(android.R.attr.actionBarSize,tv,true)) {
+            return TypedValue.complexToDimensionPixelSize(tv.data,context.resources.displayMetrics)
+        }
+        return 0
     }
 
     override fun onTouch(v: View, event: MotionEvent): Boolean {
@@ -91,7 +102,7 @@ class FloatView @JvmOverloads constructor(
 
 
     private fun getAdsorbType(): Int {
-        return 1002
+        return 1001
     }
 
     /**
@@ -126,7 +137,7 @@ class FloatView @JvmOverloads constructor(
             val centerY = mViewHeight / 2 + abs(event.rawY - mFirstY)
             if (centerY < getScreenHeight() / 2) {
                 //滑动距离<半屏=吸底
-                val bottomY = getContentHeight() - mViewHeight
+                val bottomY = getContentHeight() - mViewHeight + mToolBarHeight
                 animate().setInterpolator(DecelerateInterpolator()).setDuration(300)
                     .y(bottomY.toFloat()).start()
             } else {
