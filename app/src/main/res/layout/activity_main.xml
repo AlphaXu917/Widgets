@@ -40,8 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:rb_num="4"
-            app:rb_padding="15dp" />
+            app:rb_num="5"
+            app:rb_padding="10dp" />
 
     </LinearLayout>
 

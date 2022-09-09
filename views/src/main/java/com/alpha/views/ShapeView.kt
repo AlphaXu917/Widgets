@@ -38,7 +38,7 @@ class ShapeView @JvmOverloads constructor(
          }
     }
 
-    public fun exchangeShape() {
+    fun exchangeShape() {
         currentShape = when(currentShape) {
             Shape.Circle -> Shape.Square
             Shape.Square -> Shape.Triangle

@@ -11,9 +11,32 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mStepView.setOnClickListener {
-            val contentView = this.window.decorView.findViewById<View>(android.R.id.content) as FrameLayout
-            contentView.addView(FloatView(this))
-        }
+        createFloatView()
+        initStepView()
+        initShapeView()
+    }
+
+    private fun initStepView() {
+        mStepView.setStepMax(10000);
+        mStepView.setCurrentStepWithAnimator(6000, 4000);
+    }
+
+    private fun initShapeView() {
+        Thread {
+            while (!this.isFinishing) {
+                runOnUiThread(mShapeView::exchangeShape)
+                try {
+                    Thread.sleep(500)
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+            }
+        }.start()
+    }
+
+    private fun createFloatView() {
+        val contentView =
+            this.window.decorView.findViewById<View>(android.R.id.content) as FrameLayout
+        contentView.addView(FloatView(this))
     }
 }
