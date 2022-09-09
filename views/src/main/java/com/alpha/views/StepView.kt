@@ -63,9 +63,8 @@ class StepView @JvmOverloads constructor(
     }
 
     private fun initTextPaint() {
-        textPaint = TextPaint()
-        textPaint.isAntiAlias = true
-        textPaint.style = Paint.Style.STROKE
+        textPaint = TextPaint(Paint.ANTI_ALIAS_FLAG)
+        textPaint.style = Paint.Style.FILL
         textPaint.textSize = stepTextSize.toFloat()
         textPaint.color = stepTextColor
         val typeface: Typeface = when (textTypeFace) {
